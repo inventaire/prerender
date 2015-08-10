@@ -18,5 +18,11 @@
   },
   "bin": {
     "prerender": "server.js"
+  },
+  "scripts": {
+    "reset": "./scripts/reset",
+    "archive-logs": "./scripts/archive_logs",
+    "prestart": "npm run archive-logs",
+    "start": "aeternum -o logs/server.log -e logs/error.log > run/prerender.pid -- supervisor server.js"
   }
 }
