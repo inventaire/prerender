@@ -17,7 +17,11 @@ server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 // server.use(prerender.s3HtmlCache());
-server.use(require('prerender-level-cache'));
+
+// rewrite url before checking cache
+// to get as many cache hit as possible
 server.use(prerender.rewriteUrl());
+
+server.use(require('prerender-level-cache'));
 
 server.start();
