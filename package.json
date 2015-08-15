@@ -22,6 +22,8 @@
   "scripts": {
     "reset": "./scripts/reset",
     "archive-logs": "./scripts/archive_logs",
+    "build": "coffee -c ./lib/plugins/rewriteUrl.coffee",
+    "build-watch": "coffee -cw ./lib/plugins/rewriteUrl.coffee",
     "prestart": "npm run archive-logs",
     "start": "aeternum -o logs/server.log -e logs/error.log > run/prerender.pid -- supervisor server.js"
   }

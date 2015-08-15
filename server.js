@@ -18,5 +18,6 @@ server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 // server.use(prerender.s3HtmlCache());
 server.use(require('prerender-level-cache'));
+server.use(prerender.rewriteUrl());
 
 server.start();
