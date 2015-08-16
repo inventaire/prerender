@@ -25,12 +25,9 @@ rewriteUrl = (url)->
   query = qs.decode queryString
   query = redirectFbLocale query
 
-  console.log 'query', query
   # just keeping whitelisted parameters
   cleanedQuery = _.pick query, whitelistParameters
   cleanedQueryLength = Object.keys(cleanedQuery).length
-  console.log 'cleanedQuery', cleanedQuery
-  console.log 'cleanedQueryLength', cleanedQueryLength
   if cleanedQueryLength > 0
     queryString = qs.stringify cleanedQuery
     url = "#{path}?#{queryString}"
