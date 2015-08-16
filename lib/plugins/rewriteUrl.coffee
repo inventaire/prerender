@@ -1,8 +1,12 @@
-qs = require 'querystring'
+# a plugin to redirect bots queries
+# - rewritting urls to keep only the canonical form
+# - limiting and rewritting query parameters to just what is needed to render the right content
+# => increasing the chances of cache hit
+# => decreasing the need to customize the app client per-third party
 
-# a plugin to redirect bots queries on canical urls or existing functionalities
-# -> increasing the chances of cache hit
-# -> decreasing the need to customize the app client per-third party
+qs = require 'querystring'
+_ = require 'lodash'
+whitelistParameters = [ 'lang', 'q' ]
 
 module.exports =
   init: -> console.log 'using rewrite url plugin'
@@ -13,30 +17,38 @@ module.exports =
 
 
 rewriteUrl = (url)->
-  console.log 'initial url', url
+  console.log 'initial url:', url
   [path, queryString] = url.split '?'
 
   path = useCanonicalUrls path
 
   query = qs.decode queryString
+  query = redirectFbLocale query
 
-  { fb_locale } = query
-  if fb_locale
-    # override the lang parameter
-    query.lang = shortLang fb_locale
-
+  console.log 'query', query
   # just keeping whitelisted parameters
-  if query.lang?
-    cleanedQuery = { lang: query.lang }
+  cleanedQuery = _.pick query, whitelistParameters
+  cleanedQueryLength = Object.keys(cleanedQuery).length
+  console.log 'cleanedQuery', cleanedQuery
+  console.log 'cleanedQueryLength', cleanedQueryLength
+  if cleanedQueryLength > 0
     queryString = qs.stringify cleanedQuery
     url = "#{path}?#{queryString}"
   else
     url = path
 
-  console.log 'final url', url
+  # adding spacing in the log to make comparision with intial url easier
+  console.log 'final url  :', url
   return url
 
 
+redirectFbLocale = (query)->
+  { fb_locale } = query
+  if fb_locale
+    # override the lang parameter
+    query.lang = shortLang fb_locale
+
+  return query
 
 shortLang = (lang)-> lang[0..1]
 
