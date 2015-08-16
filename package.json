@@ -25,6 +25,7 @@
     "build": "coffee -c ./lib/plugins/rewriteUrl.coffee",
     "build-watch": "coffee -cw ./lib/plugins/rewriteUrl.coffee",
     "prestart": "npm run archive-logs",
-    "start": "aeternum -o logs/server.log -e logs/error.log > run/prerender.pid -- supervisor server.js"
+    "start": "aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.js server.js",
+    "reload": "touch reload.js"
   }
 }

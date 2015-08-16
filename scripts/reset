@@ -2,4 +2,4 @@
 # random id generated as just using $RANDOM from here seems impossile -_-
 id=$(echo 1234567890 |fold -w1 |shuf |tr -d '\n')
 echo "archiving db -> /tmp/db-$id"
-mv ./db /tmp/db-$id && npm start
+mv ./db /tmp/db-$id && npm run reload
