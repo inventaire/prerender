@@ -52,7 +52,7 @@ shortLang = (lang)-> lang[0..1]
 useCanonicalUrls = (path)->
   # just keep 'https:///entity/wd:Q7799037'
   # in 'https:///entity/wd:Q7799037/blablabla_title'
-  path.replace /(\/entity\/[\w]{2,3}:\w{1,32})\/.*/, '$1'
+  path.replace /(\/entity\/[\w]{2,4}:\w{1,32})\/.*/, '$1'
   # just keep 'https:///inventory/username/wd:Q7799037'
   # in 'https:///inventory/username/wd:Q7799037/blablabla_title'
-  path.replace /(\/inventory\/\w{1,20}\/[\w]{2,3}:\w{1,32})\/.*/, '$1'
+  path.replace /(\/inventory\/\w{1,20}\/[\w]{2,4}:\w{1,32})\/.*/, '$1'
