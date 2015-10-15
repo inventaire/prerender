@@ -3,3 +3,14 @@ node_modules/
 .DS_Store
 .elasticbeanstalk/
 .idea/
+.status
+db/
+inv-prerender.sublime-project
+inv-prerender.sublime-workspace
+lib/plugins/forceCacheRefresh.js
+lib/plugins/multiTtl.js
+lib/plugins/rewriteUrl.js
+logs/
+npm-debug.log
+run/
+
