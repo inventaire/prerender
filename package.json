@@ -22,10 +22,11 @@
   "scripts": {
     "reset": "./scripts/reset",
     "archive-logs": "./scripts/archive_logs",
-    "build": "coffee -c ./lib/plugins/rewriteUrl.coffee",
-    "build-watch": "coffee -cw ./lib/plugins/rewriteUrl.coffee",
+    "build": "coffee -c ./lib/plugins/*.coffee",
+    "build-watch": "coffee -cw ./lib/plugins/*.coffee",
     "prestart": "npm run archive-logs",
     "start": "npm run build; supervisor -w reload.js server.js",
+    "start-dev": "npm run build-watch & supervisor -w . server.js",
     "daemon-start": "npm run build; aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.js server.js",
     "reload": "touch reload.js"
   }
