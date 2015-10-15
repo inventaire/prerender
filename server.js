@@ -18,9 +18,13 @@ server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 // server.use(prerender.s3HtmlCache());
 
+// reading refresh query string parameter
+// before rewriteUrl overrides it
+server.use(prerender.forceCacheRefresh());
 // rewrite url before checking cache
 // to get as many cache hit as possible
 server.use(prerender.rewriteUrl());
+server.use(prerender.multiTtl());
 
 server.use(require('prerender-level-cache'));
 
