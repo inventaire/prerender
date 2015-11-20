@@ -22,7 +22,7 @@ server.use(prerender.forceCacheRefresh());
 // rewrite url before checking cache
 // to get as many cache hit as possible
 server.use(prerender.rewriteUrl());
-server.use(prerender.multiTtl());
+server.use(prerender.multiFreshness());
 
 server.use(require('prerender-level-cache'));
 
