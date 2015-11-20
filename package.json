@@ -8,13 +8,11 @@
     "url": "https://github.com/prerender/prerender"
   },
   "dependencies": {
-    "aws-sdk": "^2.1.8",
-    "cache-manager": "^0.16.0",
-    "lodash": "^3.1.0",
+    "lodash": "^3.10.1",
     "phantom": "^0.7.2",
     "phantomjs": "^1.9.15",
-    "prerender-level-cache": "0.0.3",
-    "tree-kill": "0.0.6"
+    "prerender-level-cache": "0.2.0",
+    "tree-kill": "^1.0.0"
   },
   "bin": {
     "prerender": "server.js"
