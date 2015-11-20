@@ -27,5 +27,8 @@
     "start-dev": "npm run build-watch & supervisor -w . server.js",
     "daemon-start": "npm run build; aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.js server.js",
     "reload": "touch reload.js"
+  },
+  "engines": {
+    "node": "~0.12.7"
   }
 }
