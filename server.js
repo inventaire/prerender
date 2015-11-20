@@ -15,8 +15,6 @@ server.use(prerender.blacklist());
 // server.use(prerender.logger());
 server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
-// server.use(prerender.inMemoryHtmlCache());
-// server.use(prerender.s3HtmlCache());
 
 // reading refresh query string parameter
 // before rewriteUrl overrides it
