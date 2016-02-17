@@ -1,0 +1,15 @@
+timestamp=`echo $(date +'%Y%m%d-%H-%M')`
+archive=logs/archives
+
+logserver=logs/server.log
+logservererrors=logs/error.log
+
+mkdir -p $archive/server $archive/errors
+
+cp $logserver $archive/server/$timestamp
+echo 'archived' > $logserver
+echo "archived $logserver"
+
+cp $logservererrors $archive/errors/$timestamp
+echo 'archived' > $logservererrors
+echo "archived $logservererrors"

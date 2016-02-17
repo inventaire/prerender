@@ -12,21 +12,33 @@
     "aws-sdk": "^2.4.12",
     "cache-manager": "^2.1.2",
     "he": "^1.1.0",
+    "inv-prerender-plugins": "^1.0.5",
     "lodash": "^4.14.1",
     "phridge": "^2.0.0",
-    "signal-exit": "^3.0.0"
+    "prerender-level-cache": "^0.2.1",
+    "signal-exit": "^3.0.0",
+    "supervisor": "^0.11.0"
   },
   "devDependencies": {
     "mocha": "^3.0.1",
-    "sinon": "^1.17.5"
+    "sinon": "^1.17.5",
+    "supervisor": "^0.11.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha",
+    "reset": "./scripts/reset",
+    "archive-logs": "./scripts/archive_logs",
+    "prestart": "npm run archive-logs",
+    "start": "supervisor -w . prerender.js",
+    "daemon": "./scripts/forever start",
+    "restart": "./scripts/forever restart",
+    "stop": "./scripts/forever stop"
   },
   "bin": {
-    "prerender": "server.js"
+    "prerender": "prerender.js"
   },
   "engines": {
-    "node": ">=0.12.9"
+    "node": "^4.3.0",
+    "npm": "^3.7.1"
   }
 }
