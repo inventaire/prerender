@@ -15,7 +15,7 @@
     "tree-kill": "^1.0.0"
   },
   "bin": {
-    "prerender": "server.js"
+    "prerender": "prerender.js"
   },
   "scripts": {
     "reset": "./scripts/reset",
@@ -23,9 +23,9 @@
     "build": "coffee -c ./lib/plugins/*.coffee",
     "build-watch": "coffee -cw ./lib/plugins/*.coffee",
     "prestart": "npm run archive-logs",
-    "start": "npm run build; supervisor -w reload.js server.js",
-    "start-dev": "npm run build-watch & supervisor -w . server.js",
-    "daemon-start": "npm run build; aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.js server.js",
+    "start": "npm run build; supervisor -w reload.js prerender.js",
+    "start-dev": "npm run build-watch & supervisor -w . prerender.js",
+    "daemon-start": "npm run build; aeternum -o logs/server.log -e logs/error.log -- supervisor -w reload.js prerender.js",
     "reload": "touch reload.js"
   },
   "engines": {
