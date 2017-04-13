@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-# $1: either 'start', 'restart', 'stop'
-forever -a -o logs/server.log -e logs/error.log $1 prerender.js

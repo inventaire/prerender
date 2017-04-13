@@ -9,6 +9,7 @@
     "url": "https://github.com/prerender/prerender"
   },
   "dependencies": {
+    "add-to-systemd": "^1.2.0",
     "aws-sdk": "^2.4.12",
     "cache-manager": "^2.1.2",
     "he": "^1.1.0",
@@ -25,14 +26,13 @@
     "supervisor": "^0.11.0"
   },
   "scripts": {
+    "start": "node prerender.js",
+    "watch": "supervisor -w . prerender.js",
+    "add-to-systemd": "./scripts/add_to_systemd",
     "test": "./node_modules/.bin/mocha",
     "reset": "./scripts/reset",
     "archive-logs": "./scripts/archive_logs",
-    "prestart": "npm run archive-logs",
-    "start": "supervisor -w . prerender.js",
-    "daemon": "./scripts/forever start",
-    "restart": "./scripts/forever restart",
-    "stop": "./scripts/forever stop"
+    "prestart": "npm run archive-logs"
   },
   "bin": {
     "prerender": "prerender.js"
