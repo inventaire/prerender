@@ -3,7 +3,17 @@ var prerender = require('./lib');
 
 var server = prerender({
     workers: process.env.PRERENDER_NUM_WORKERS,
-    iterations: process.env.PRERENDER_NUM_ITERATIONS
+    iterations: process.env.PRERENDER_NUM_ITERATIONS,
+    // Set PhantomJS to cache resources (JS, CSS, etc)
+    // cf https://github.com/prerender/prerender/issues/247
+    phantomArguments: {
+      // Default flags
+      '--load-images': false,
+      '--ignore-ssl-errors': true,
+      '--ssl-protocol': 'tlsv1.2',
+      // Customized
+      '--disk-cache': true
+    }
 });
 
 
