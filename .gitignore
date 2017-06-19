@@ -5,4 +5,5 @@ node_modules/
 .idea/
 db
 logs
+config/local.js
 
