@@ -9,7 +9,7 @@
     "url": "https://github.com/prerender/prerender"
   },
   "dependencies": {
-    "add-to-systemd": "^1.2.0",
+    "add-to-systemd": "^2.1.2",
     "cache-manager": "^2.1.2",
     "config": "^1.26.1",
     "he": "^1.1.0",
