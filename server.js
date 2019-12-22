@@ -12,7 +12,7 @@ server.use(prerender.httpHeaders());
 server.use(prerender.forceCacheRefresh());
 // Rewrite url before checking cache to get as many cache hit as possible
 server.use(prerender.rewriteUrl());
-server.use(prerender.multiFreshness());
+server.use(prerender.periodicalRefresh());
 
 server.use(require('prerender-level-cache'));
 
