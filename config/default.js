@@ -4,6 +4,7 @@ module.exports = {
   logRequests: false,
   ttl: 24 * 60 * 60 * 1000,
   omittedHeaders: [
-    'Set-Cookie'
+    'set-cookie',
+    'authorization',
   ]
 }
