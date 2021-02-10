@@ -11,6 +11,7 @@ server.use(prerender.httpHeaders());
 // Reading refresh query string parameter before rewriteUrl overrides it
 server.use(prerender.forceCacheRefresh());
 server.use(prerender.periodicalRefresh());
+server.use(prerender.removeNoscriptReload());
 
 server.use(require('prerender-level-cache'));
 
