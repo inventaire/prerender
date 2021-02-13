@@ -10,7 +10,6 @@ server.use(prerender.httpHeaders());
 
 // Reading refresh query string parameter before cleanupUrl overrides it
 server.use(prerender.forceCacheRefresh());
-server.use(prerender.periodicalRefresh());
 server.use(prerender.cleanupUrl());
 server.use(prerender.removeNoscriptReload());
 
