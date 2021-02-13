@@ -8,9 +8,10 @@ server.use(prerender.sendPrerenderHeader());
 server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 
-// Reading refresh query string parameter before rewriteUrl overrides it
+// Reading refresh query string parameter before cleanupUrl overrides it
 server.use(prerender.forceCacheRefresh());
 server.use(prerender.periodicalRefresh());
+server.use(prerender.cleanupUrl());
 server.use(prerender.removeNoscriptReload());
 
 server.use(require('prerender-level-cache'));
